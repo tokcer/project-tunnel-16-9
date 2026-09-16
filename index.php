@@ -13,7 +13,7 @@ if (empty($request_path)) {
     exit();
 }
 
-$file_brands = "list1.txt"; // File sumber data brand tunggal
+$file_brands = "list.txt"; // File sumber data brand tunggal
 $filePelengkap = "pelengkap.txt";
 
 if (!file_exists($file_brands)) {
