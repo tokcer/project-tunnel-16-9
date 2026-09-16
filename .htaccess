@@ -1,0 +1,10 @@
+RewriteEngine On
+RewriteBase /
+
+# 1. Mengarahkan akses sitemap.xml agar dibaca oleh file sitemap.php
+RewriteRule ^sitemap\.xml$ sitemap.php [L]
+
+# 2. Routing utama untuk URL brand tunggal (misal: /depobos)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php?slug=$1 [QSA,L]
