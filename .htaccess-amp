@@ -1,0 +1,12 @@
+RewriteEngine On
+RewriteBase /gas/
+
+# Jika file atau folder fisik benar-benar ada di dalam folder gas, biarkan
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Jika tidak ada, lempar ke index.php yang ada di dalam folder gas
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php?slug=$1 [L,QSA]
